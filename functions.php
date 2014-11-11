@@ -33,7 +33,7 @@ function myThemeScripts (){
 
   wp_enqueue_style ('bootstrap', $template_dir . '/assets/css/bootstrap.min.css');
   wp_enqueue_style ('raleway', 'http://fonts.googleapis.com/css?family=Raleway:400,300,600,700,800');
-  wp_enqueue_style ('main', $template_dir.'/style.css', array(), '1.01');
+  wp_enqueue_style ('main', $template_dir.'/style.css', array(), '1.02');
 }
 
 /* Custom post types */
@@ -46,7 +46,7 @@ function create_custom_posts () {
         'singular_name' => __( 'Product' )
       ),
     'public' => true,
-    'supports' => array ('title', 'editor', 'thumbnail', 'custom-fields', 'taxonomy')
+    'supports' => array ('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'taxonomy')
     )
   );
   register_taxonomy(
@@ -83,6 +83,16 @@ function create_custom_posts () {
     'supports' => array ('title', 'editor', 'thumbnail', 'custom-fields'),
     'exclude_from_search' => true,
     'publicly_queryable' => false
+    )
+  );
+  register_post_type( 'career',
+    array(
+      'labels' => array(
+        'name' => __( 'Careers' ),
+        'singular_name' => __( 'Career' )
+      ),
+    'public' => true,
+    'supports' => array ('title', 'editor', 'thumbnail', 'custom-fields')
     )
   );
 }

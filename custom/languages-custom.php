@@ -152,10 +152,11 @@ class MyLangsClass
     'email'=>array('en'=>'Email'),
     'subject'=>array('en'=>'Subject'),
     'message'=>array('en'=>'Message'),
-    'form_message'=>array('en'=>'Fields marked with * are required'),
-    'invalid_email'=>array('en'=>'Invalid Email'),
-    'form_success_msg'=>array('en'=>'Your message was successfully sent'),
-    'send'=>array('en'=>'Send')
+    'form_message'=>array('en'=>'Fields marked with * are required.'),
+    'invalid_email'=>array('en'=>'Invalid Email.'),
+    'form_success_msg'=>array('en'=>'Thank you for applying, we will be in touch.'),
+    'send'=>array('en'=>'Send'),
+    'apply'=>array('en'=>'Apply')
     ); // end translations array
     
     if ( $return != '')

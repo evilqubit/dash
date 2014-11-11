@@ -1,15 +1,14 @@
-<div class="push"></div>
-
 </div> <!-- #body_content -->
 
-</div> <!-- #wrapper -->
+<div class="push"></div>
+</div>
 
 <?php
 // Languages
 global $MyLangs;
 ?>
 
-<section class="footer">  
+<!--<section class="footer">  
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
@@ -42,7 +41,7 @@ global $MyLangs;
     </div>
   </div> 
 </section>
-
+-->
 <section class="npd sub-footer">  
   <div class="container">
     <div class="row">
@@ -52,7 +51,7 @@ global $MyLangs;
     </div>
   </div> 
 </section>
-    
+
 <?php wp_footer();?>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>

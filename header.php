@@ -40,10 +40,7 @@ $body_id = ( is_home() ) ? 'z_home' : '';
 <div id="top_container">
   <div class="container">
     <div class="row">
-      <div class="col-xs-3">
-        <a id="logo" href="<?php echo $home_link;?>"><img class="img-responsive" src="<?php echo $MyLangs->s_d.'/assets/img/logo.jpg';?>" /></a>
-      </div>
-      <div class="col-xs-5 col-xs-offset-4" id="search_col">
+      <div class="col-xs-5 col-xs-offset-7" id="search_col">
         <div id="search">
           <form action="<?php bloginfo('url');?>" method="get">
             <div class="search">
@@ -54,40 +51,45 @@ $body_id = ( is_home() ) ? 'z_home' : '';
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-xs-3">
+        <a id="logo" href="<?php echo $home_link;?>"><img class="img-responsive" src="<?php echo $MyLangs->s_d.'/assets/img/logo.jpg';?>" /></a>
+      </div>
+      <div class="col-xs-9">
+        <nav class="navbar navbar-default header" role="navigation">
+          <div class="row">
+            <div class="col-xs-12">
+              <ul class="nav navbar-nav">
+              
+                <li class="<?php echo (is_home()) ? 'active' : '';?>">
+                  <a href="<?php echo $home_link;?>"><?php $MyLangs->translate('menu_home');?></a>
+                </li>
+                
+                <?php
+                // exclude pages
+                $local = 1;
+                $exclude_pages = ($local) ? '' : '';
+
+                // exclude live page. 128
+                $all_pages = get_pages('sort_column=menu_order&parent=0&exclude='.$exclude_pages);
+
+                foreach ($all_pages as $page)
+                {
+                  $permalink = get_permalink($page->ID);
+                  $selected = ($page_slug == $page->post_name) ? 'active' : '';
+                  ?>
+                  <li class="<?php echo $selected;?>">
+                    <a href="<?php echo $permalink;?>"><?php $MyLangs->getPageTitle($page);?></a>
+                  </li>
+                  <?php
+                }?>
+              </ul>
+            </div>
+          </div><!-- row -->
+        </nav>
+      </div>
+    </div>
   </div>
 </div>
-<nav class="navbar navbar-default header" role="navigation">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <ul class="nav navbar-nav">
-        
-          <li class="<?php echo (is_home()) ? 'active' : '';?>">
-            <a href="<?php echo $home_link;?>"><?php $MyLangs->translate('menu_home');?></a>
-          </li>
-          
-          <?php
-          // exclude pages
-          $local = 1;
-          $exclude_pages = ($local) ? '' : '';
-
-          // exclude live page. 128
-          $all_pages = get_pages('sort_column=menu_order&parent=0&exclude='.$exclude_pages);
-
-          foreach ($all_pages as $page)
-          {
-            $permalink = get_permalink($page->ID);
-            $selected = ($page_slug == $page->post_name) ? 'active' : '';
-            ?>
-            <li class="<?php echo $selected;?>">
-              <a href="<?php echo $permalink;?>"><?php $MyLangs->getPageTitle($page);?></a>
-            </li>
-            <?php
-          }?>
-        </ul>
-      </div>
-    </div><!-- row -->
-  </div><!-- container -->
-</nav>
 
 <div id="body_content">

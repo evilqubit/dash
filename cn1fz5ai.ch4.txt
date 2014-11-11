@@ -1,0 +1,22 @@
+﻿version 1.1 - homepage/products/careers changes
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   custom/languages-custom.php
+#	modified:   footer.php
+#	modified:   functions.php
+#	modified:   header.php
+#	modified:   index.php
+#	modified:   single.php
+#	modified:   style.css
+#	modified:   templateProducts.php
+#
+# Untracked files:
+#	assets/img/test.jpg
+#	assets/jquery-ui/
+#	templateCareers.php
+#
+
