@@ -29,60 +29,25 @@ function myThemeScripts (){
   
   wp_enqueue_script ('bootstrap', $template_dir . '/assets/js/bootstrap.min.js', array('jquery'), '', true);
   wp_enqueue_script ('responsiveslides.min', $template_dir . '/assets/js/responsiveslides.min.js', array('jquery'), '', true);
+	wp_enqueue_script ('superfish', $template_dir . '/assets/js/superfish.js', array('jquery'), '', true);
   wp_enqueue_script ('scripts', $template_dir . '/assets/js/scripts.js', array('jquery'), '1.05', true);
 
   wp_enqueue_style ('bootstrap', $template_dir . '/assets/css/bootstrap.min.css');
   wp_enqueue_style ('raleway', 'http://fonts.googleapis.com/css?family=Raleway:400,300,600,700,800');
-  wp_enqueue_style ('main', $template_dir.'/style.css', array(), '1.02');
+  wp_enqueue_style ('main', $template_dir.'/style.css', array(), '1.13');
 }
 
 /* Custom post types */
 add_action( 'init', 'create_custom_posts' );
 function create_custom_posts () {
-  register_post_type( 'product',
+  register_post_type( 'solution',
     array(
       'labels' => array(
-        'name' => __( 'Products' ),
-        'singular_name' => __( 'Product' )
+        'name' => __( 'Solutions' ),
+        'singular_name' => __( 'Solution' )
       ),
     'public' => true,
     'supports' => array ('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'taxonomy')
-    )
-  );
-  register_taxonomy(
-    'products_categories',
-    'product',
-    array(
-      'labels' => array(
-         'name' => 'Products Categories',
-         'add_new_item' => 'Add New Product Category',
-         'new_item_name' => "New Product Category"
-      ),
-      'rewrite'=> array ('slug'=>'products.category'),
-      'show_ui' => true,
-      'show_tagcloud' => false
-    )
- 	);
-  register_post_type( 'service',
-    array(
-      'labels' => array(
-        'name' => __( 'Services' ),
-        'singular_name' => __( 'Service' )
-      ),
-    'public' => true,
-    'supports' => array ('title', 'editor', 'thumbnail', 'custom-fields')
-    )
-  );
-  register_post_type( 'slider',
-    array(
-      'labels' => array(
-        'name' => __( 'Sliders' ),
-        'singular_name' => __( 'Slider' )
-      ),
-    'public' => true,
-    'supports' => array ('title', 'editor', 'thumbnail', 'custom-fields'),
-    'exclude_from_search' => true,
-    'publicly_queryable' => false
     )
   );
   register_post_type( 'career',

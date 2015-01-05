@@ -24,20 +24,35 @@ function custom_settings(){
   $fields = array (
     'Home'=>array(
       'fields'=>array(
-        'products_page_excerpt_en'=>array(
+        'solutions_page_excerpt_en'=>array(
           'default'=>'Lorem ipsum dolor sit amet',
           'type'=>'input',
-          'title'=>'Products Homepage Box Description'
+          'title'=>'Solutions Homepage Box Description'
         ),
         'services_page_excerpt_en'=>array(
           'default'=>'Lorem ipsum dolor sit amet',
           'type'=>'input',
           'title'=>'Services Homepage Box Description'
         ),
-        'clients_page_excerpt_en'=>array(
+        'about_page_excerpt_en'=>array(
           'default'=>'Lorem ipsum dolor sit amet',
           'type'=>'input',
-          'title'=>'Clients Homepage Box Description'
+          'title'=>'About Homepage Box Description'
+        ),
+				'solutions_page_image'=>array(
+          'default'=>'',
+          'type'=>'uploader',
+          'title'=>'Solutions Homepage Box Image'
+        ),
+        'services_page_image'=>array(
+          'default'=>'',
+          'type'=>'uploader',
+          'title'=>'Services Homepage Box Image'
+        ),
+        'about_page_image'=>array(
+          'default'=>'',
+          'type'=>'uploader',
+          'title'=>'About Homepage Box Image'
         )
       )// fields
     )// setting

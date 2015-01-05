@@ -56,7 +56,7 @@ $body_id = ( is_home() ) ? 'z_home' : '';
         <a id="logo" href="<?php echo $home_link;?>"><img class="img-responsive" src="<?php echo $MyLangs->s_d.'/assets/img/logo.jpg';?>" /></a>
       </div>
       <div class="col-xs-9">
-        <nav class="navbar navbar-default header" role="navigation">
+        <nav class="navbar navbar-default header sf-menu" role="navigation" id="nav">
           <div class="row">
             <div class="col-xs-12">
               <ul class="nav navbar-nav">
@@ -77,11 +77,30 @@ $body_id = ( is_home() ) ? 'z_home' : '';
                 {
                   $permalink = get_permalink($page->ID);
                   $selected = ($page_slug == $page->post_name) ? 'active' : '';
-                  ?>
-                  <li class="<?php echo $selected;?>">
-                    <a href="<?php echo $permalink;?>"><?php $MyLangs->getPageTitle($page);?></a>
-                  </li>
-                  <?php
+								if ( $page->post_name == 'solutions' ){
+									$wp_query = new WP_Query ('post_type=solution&showposts=6');
+									?>
+									<li class="<?php echo $selected;?>">
+										<a href="<?php echo $permalink;?>"><?php $MyLangs->getPageTitle($page);?></a>
+											<?php if (have_posts()){?>
+											<ul>
+												<?php
+												while (have_posts()) : the_post();?>
+													<li><a href="<?php the_permalink();?>"><?php $MyLangs->getPostTitle();?></a></li>
+												<?php
+												endwhile;
+												wp_reset_query();
+												?>
+											</ul>
+										<?php }?>
+									</li>
+									<?php
+								}
+								else{?>
+									<li class="<?php echo $selected;?>">
+										<a href="<?php echo $permalink;?>"><?php $MyLangs->getPageTitle($page);?></a>
+									</li><?php
+								}
                 }?>
               </ul>
             </div>

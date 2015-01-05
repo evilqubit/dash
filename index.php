@@ -25,28 +25,30 @@ global $MyLangs;
 <section id="features">
   <div class="container">
     <div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-6">
         <div class="box">
-          <div class="head">Products</div>
-          <div class="img"><a href="<?php echo get_bloginfo('url').'/products';?>"><img class="img-responsive" src="<?php bloginfo('stylesheet_directory');?>/assets/img/test.jpg" /></a></div>
-          <div class="dsc"><?php $MyLangs->getSetting('products_page_excerpt');?></div>
-          <div class="readmore"><a href="<?php echo get_bloginfo('url').'/products';?>">Learn More...</a></div>
+          <div class="head">Solutions</div>
+          <div class="img"><a href="<?php echo get_bloginfo('url').'/solutions';?>"><img class="img-responsive" src="<?php $MyLangs->getSetting('solutions_page_image');?>" /></a></div>
+          <div class="dsc"><?php $MyLangs->getSetting('solutions_page_excerpt');?></div>
+          <div class="readmore"><a href="<?php echo get_bloginfo('url').'/solutions';?>">Learn More...</a></div>
         </div>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-6">
         <div class="box">
           <div class="head">Services</div>
-          <div class="img"><a href="<?php echo get_bloginfo('url').'/services';?>"><img class="img-responsive" src="<?php bloginfo('stylesheet_directory');?>/assets/img/test.jpg" /></a></div>
+          <div class="img"><a href="<?php echo get_bloginfo('url').'/services';?>"><img class="img-responsive" src="<?php $MyLangs->getSetting('services_page_image');?>" /></a></div>
           <div class="dsc"><?php $MyLangs->getSetting('services_page_excerpt');?></div>
           <div class="readmore"><a href="<?php echo get_bloginfo('url').'/services';?>">Learn More...</a></div>
         </div>
       </div>
-      <div class="col-xs-4">
-        <div class="box">
-          <div class="head">Clients</div>
-          <div class="img"><a href="<?php echo get_bloginfo('url').'/clients';?>"><img class="img-responsive" src="<?php bloginfo('stylesheet_directory');?>/assets/img/test.jpg" /></a></div>
-          <div class="dsc"><?php $MyLangs->getSetting('clients_page_excerpt');?></div>
-          <div class="readmore"><a href="<?php echo get_bloginfo('url').'/clients';?>">Learn More...</a></div>
+    </div>
+		<div class="row">
+      <div class="col-xs-12">
+        <div class="box box-about clearfix">
+          <div class="head">About Us</div>
+          <div class="img"><a href="<?php echo get_bloginfo('url').'/services';?>"><img class="img-responsive" src="<?php $MyLangs->getSetting('about_page_image');?>" /></a></div>
+				<div class="dsc"><?php $MyLangs->getSetting('about_page_excerpt');?></div>
+          <div class="readmore"><a href="<?php echo get_bloginfo('url').'/about';?>">Learn More...</a></div>
         </div>
       </div>
     </div>

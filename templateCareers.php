@@ -12,7 +12,8 @@ $vacancies = array();
 $wp_query = new WP_Query ('post_type=career');
 while ( have_posts() ) : the_post();
 	$vID = get_the_ID();
-	$vacancies["$vID"] = $MyLangs->getPostTitle(1);
+	$vacancies["$vID"]['title'] = $MyLangs->getPostTitle(1);
+	$vacancies["$vID"]['description'] = $MyLangs->getPostContent('', 1);
 endwhile;
 wp_reset_query();
 ?>
@@ -118,9 +119,10 @@ if ( ! $form_error && isset( $_POST['_wpnonce-contact-form-submitted'] ) && wp_v
 						?>
 						<h4>Available Vacancies: </h4>
 						<?php
-					foreach ($vacancies as $vacancyTitle){
+					foreach ($vacancies as $vacancyData){
 						?>
-						<p>- <?php echo $vacancyTitle;?></p>
+						<p>- <?php echo $vacancyData['title'];?></p>
+						<p class="vacancy-description"><?php echo strip_tags($vacancyData['description'], '<a>');?></p>
 						<?php
 					}
 					}
