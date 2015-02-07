@@ -1,11 +1,16 @@
 ## Description
 
-Wordpress website for Dach.
+Wordpress website for Dach
 
 ## Usage
 
 Theme files only.
 
+## Plugins Used
+
+- Advanced Custom Fields
+- Better WP Security
+
 ## Contributors
 
-Patrick Saad | patrick.saad.cs at gmail
+Patrick Saad

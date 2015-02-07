@@ -80,11 +80,10 @@ if ( have_posts() ) while ( have_posts() ) : the_post();
               }?>
               
               <address>
-                <strong>DACH s.a.l.</strong><br>
-                Downtown Road<br>
-                Beirut, Lebanon<br>
-                P: (961) 123456<br>
-                E: <a href="mailto:#">info@dach.com</a>
+                5th floor, Nadim Tohme Center<br>
+								Jal-el-Dib Highway, Lebanon<br>
+                Office: +961 4 520528<br>
+                Email: <a href="mailto:info@dachmea.com">info@dachmea.com</a>
               </address>
           
               <form class="form-inline" action="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>" method="post" id="contact_form_form">
@@ -121,5 +120,41 @@ if ( have_posts() ) while ( have_posts() ) : the_post();
 endwhile;
 wp_reset_query();
 ?>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+// When the window has finished loading create our google map below
+google.maps.event.addDomListener(window, 'load', init);
+
+function init() {
+  var pinColor = "005395";
+  var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+      new google.maps.Size(21, 34),
+      new google.maps.Point(0,0),
+      new google.maps.Point(10, 34));
+  var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+      new google.maps.Size(40, 37),
+      new google.maps.Point(0, 0),
+      new google.maps.Point(12, 35));
+
+  var myLatlng = new google.maps.LatLng(33.912223, 35.581532);
+  var mapOptions = {
+     zoom: 14,
+     scrollwheel: false,
+     center: myLatlng};
+  var mapElement = document.getElementById('map');
+  var map = new google.maps.Map(mapElement, mapOptions);
+
+    marker = new google.maps.Marker({
+    position: myLatlng,
+    map: map,
+    title: 'Dach',
+    icon: pinImage,
+    shadow: pinShadow
+    });
+	
+}
+</script>
 
 <?php get_footer(); ?>

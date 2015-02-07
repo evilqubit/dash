@@ -53,7 +53,7 @@ $body_id = ( is_home() ) ? 'z_home' : '';
     </div>
     <div class="row">
       <div class="col-xs-3">
-        <a id="logo" href="<?php echo $home_link;?>"><img class="img-responsive" src="<?php echo $MyLangs->s_d.'/assets/img/logo.jpg';?>" /></a>
+        <a id="logo" href="<?php echo $home_link;?>"><img class="img-responsive" src="<?php echo $MyLangs->s_d.'/assets/img/logo.png';?>" /></a>
       </div>
       <div class="col-xs-9">
         <nav class="navbar navbar-default header sf-menu" role="navigation" id="nav">

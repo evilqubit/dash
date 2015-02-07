@@ -3,10 +3,22 @@
 <?php
 // Languages
 global $MyLangs;
+global $wpdb;
 ?>
 
 <?php
-$wp_query = new WP_Query ('post_type=solution&showposts=6&s='.$s);
+$querystr="
+	SELECT $wpdb->posts.*, $wpdb->postmeta.*
+	FROM $wpdb->posts
+	LEFT JOIN $wpdb->postmeta ON $wpdb->posts.id = $wpdb->postmeta.post_id
+	WHERE
+	( $wpdb->posts.post_type = 'solution' AND
+	( $wpdb->postmeta.meta_key = 'content_en' OR $wpdb->postmeta.meta_key = 'title_en' ) AND $wpdb->postmeta.meta_value LIKE '%$s%' )
+	OR (
+	( $wpdb->postmeta.meta_key = 'content_en' OR $wpdb->postmeta.meta_key = 'title_en' ) AND $wpdb->posts.post_type ='page' AND $wpdb->postmeta.meta_value LIKE '%$s%' )
+";
+
+$pageposts = $wpdb->get_results($querystr, OBJECT_K);
 ?>
 
 <section id="solution-page">
@@ -14,25 +26,18 @@ $wp_query = new WP_Query ('post_type=solution&showposts=6&s='.$s);
     <div class="row">
       <div class="col-xs-12">
         <h3 class="page-heading">Search results for "<?php echo $s;?>"</h3>
-        <div id="solutions">
+        <div id="search-entries">
           <div class="row">
+						<ul style="margin-left: 15px">
             <?php
-            if ( have_posts() ) while (have_posts()) : the_post();
+						foreach ($pageposts as $post): setup_postdata($post);
             ?>
-							<div class="col-xs-4 solution_entry">
-							<div class="box solutions-box">
-								<div class="head"><?php $MyLangs->getPostTitle();?></div>
-								<div class="img"><a href="<?php the_permalink();?>"><img class="img-responsive" src="<?php echo featuredImg(get_the_ID());?>" /></a></div>
-								<div class="dsc"><?php the_excerpt();?></div>
-								<div class="readmore"><a href="<?php the_permalink();?>">Learn More...</a></div>
-							</div>
-						</div>
+							<li>- <a href="<?php the_permalink();?>"><?php $MyLangs->getPostTitle();?></a></li>
             <?php
-            endwhile;
+            endforeach;
             ?>
+						</ul>
           </div>
-          <?php
-          wp_reset_query();?>
         </div>
       </div>
     </div>
